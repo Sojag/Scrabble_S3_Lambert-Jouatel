@@ -734,6 +734,7 @@ namespace Scabble_JOUATEL
                                 {
                                     List<char> motTrouvé = new List<char>();
                                     List<char> bonusAssociés = new List<char>();
+                                    bool placé = false;
                                     for (int j = 0; j < 15; j++)
                                     {
                                         char l = plateauFactice[j, i];
@@ -742,10 +743,15 @@ namespace Scabble_JOUATEL
                                         {
                                             motTrouvé.Add(l);
                                             bonusAssociés.Add(L);
+                                            char k = plateauPlacé[j, i];
+                                            if (k != '3' && k != '2' && k != '7' && k != '8' && k != '_' && k != '*')
+                                            {
+                                                placé = true;
+                                            }
                                         }
                                         else
                                         {
-                                            if (motTrouvé.Count > 1)
+                                            if (motTrouvé.Count > 1 && placé)
                                             {
                                                 char[] motAjouté = motTrouvé.ToArray();
                                                 char[] bonusAjoutés = bonusAssociés.ToArray();
@@ -770,6 +776,7 @@ namespace Scabble_JOUATEL
                                 {
                                     List<char> motTrouvé = new List<char>();
                                     List<char> bonusAssociés = new List<char>();
+                                    bool placé = false;
                                     for (int j = 0; j < 15; j++)
                                     {
                                         char l = plateauFactice[i, j];
@@ -778,6 +785,11 @@ namespace Scabble_JOUATEL
                                         {
                                             motTrouvé.Add(l);
                                             bonusAssociés.Add(L);
+                                            char k = plateauPlacé[i, j];
+                                            if (k != '3' && k != '2' && k != '7' && k != '8' && k != '_' && k != '*')
+                                            {
+                                                placé = true;
+                                            }
                                         }
                                         else
                                         {

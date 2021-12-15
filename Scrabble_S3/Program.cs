@@ -377,7 +377,7 @@ namespace Scabble_JOUATEL
 
         static Jeu ChargerUnePartie(string fichier)
         {
-            Plateau plateauChargé = new Plateau();
+            Plateau plateauChargé = new Plateau(fichier);
             Sac_Jetons sacChargé = new Sac_Jetons(fichier);
 
             string fullpath = Path.GetFullPath(fichier + "-Joueurs.txt");

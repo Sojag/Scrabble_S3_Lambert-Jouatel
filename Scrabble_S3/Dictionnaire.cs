@@ -65,22 +65,11 @@ namespace Scabble_JOUATEL
 
         public override string ToString()
         {
-            Console.WriteLine("Prépare toi à un turbo string de l'enfer");
-            Console.WriteLine("Tu vas avoir des séries de " + this.GODZILLA[5].Length + " mots d'un coup");
             string leRetourDeGodzilla = "";
             for (int i = 0; i < this.GODZILLA.Length; i++) 
             {
                 Console.WriteLine(i);
-                leRetourDeGodzilla += "Tous les mots à " + (i + 2) + " lettres :" + '\n';
-                for(int j = 0; j < this.GODZILLA[i].Length; j++)
-                {
-                    leRetourDeGodzilla += this.GODZILLA[i][j] + "; ";
-                    if (j % (20 - i) == 0)
-                    {
-                        leRetourDeGodzilla += '\n';
-                    }
-                }
-                leRetourDeGodzilla += '\n';
+                leRetourDeGodzilla += "Il y a " + this.GODZILLA[i][0].Length + " mots à " + (i + 2) + " lettres :" + '\n';
                 leRetourDeGodzilla += '\n';
             }
             return leRetourDeGodzilla;
