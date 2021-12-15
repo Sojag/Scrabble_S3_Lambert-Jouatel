@@ -15,6 +15,10 @@ namespace Scabble_JOUATEL
         {
             get { return this.Pioche; } // accès publique pour faciliter l'enregistrement
         }
+
+        /// <summary>
+        /// Constructeur du sac jeton, crée la pile et la mélange.
+        /// </summary>
         public Sac_Jetons() // Constructeur à partir du fichier vierge
         {
             string fullpath = Path.GetFullPath("Jetons.txt"); // obtention du chemin complet
@@ -60,6 +64,11 @@ namespace Scabble_JOUATEL
             }
             this.Pioche = piocheFinale; // La pioche créée est donc une pile déjà mélangée et il suffira de prendre le jeton au dessus de la pile pour tirer aléatoirement
         }
+
+        /// <summary>
+        /// Recrée la pile à partir d'un fichier de sauvegarde créé par le programme
+        /// </summary>
+        /// <param name="sauvegarde"></param>
         public Sac_Jetons(string sauvegarde) // Constructeur à partir de la sauvegarde
         {
             Stack<Jetons> piocheFinale = new Stack<Jetons>();
@@ -89,6 +98,10 @@ namespace Scabble_JOUATEL
             this.Pioche = piocheFinale;
         }
 
+        /// <summary>
+        /// Pioche un jeton dans la pile
+        /// </summary>
+        /// <returns></returns>
         public Jetons retire_Jeton()
         {
             return this.Pioche.Pop(); // retirer un jeton aléatoirement revient à retirer le premier jeton puisque la pile est déjà mélangée

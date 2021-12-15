@@ -37,7 +37,11 @@ namespace Scabble_JOUATEL
             set { this.main = value; }
         }
 
-        public Joueur(string nom) //constructeur qui défini le joueur (au début du jeu)
+        /// <summary>
+        /// Initialise un nouveau joueur (pour une nouvelle partie)
+        /// </summary>
+        /// <param name="nom"></param>
+        public Joueur(string nom)
         {
             this.nom = nom;
             this.score = 0;
@@ -45,7 +49,13 @@ namespace Scabble_JOUATEL
             this.main = new List<Jetons>();
             this.estIA = false;
         }
-        public Joueur(string nom, bool estIA) //constructeur qui défini le joueur (au début du jeu)
+
+        /// <summary>
+        /// Initialise un nouveau joueur permettant de choisir son caractère IA ou non
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="estIA"></param>
+        public Joueur(string nom, bool estIA)
         {
             this.nom = nom;
             this.score = 0;
@@ -53,7 +63,16 @@ namespace Scabble_JOUATEL
             this.main = new List<Jetons>();
             this.estIA = estIA;
         }
-        public Joueur(string nom, int score, List<string> motsTrouvés, List<Jetons> main, bool estIA) //constructeur pour partie en cours
+
+        /// <summary>
+        /// Initialise un joueur à partir d'une sauvegarde pour restaurer son nom, son score, les mots qu'il a trouvé, sa main, et si c'est une IA ou non
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="score"></param>
+        /// <param name="motsTrouvés"></param>
+        /// <param name="main"></param>
+        /// <param name="estIA"></param>
+        public Joueur(string nom, int score, List<string> motsTrouvés, List<Jetons> main, bool estIA)
         {
             this.nom = nom;
             this.score = score;
@@ -62,39 +81,58 @@ namespace Scabble_JOUATEL
             this.estIA = estIA;
         }
 
-
-        public void Add_Main_Courante(Jetons monjeton) //ajoute un jeton dans la main courante
+        /// <summary>
+        /// Ajoute un jeton dans la main du joueur
+        /// </summary>
+        /// <param name="monjeton"></param>
+        public void Add_Main_Courante(Jetons monjeton)
         {
             this.main.Add(monjeton);
         }
 
-        public void Add_Score(int val) //ajoute une valeur au score
+        /// <summary>
+        /// Ajoute une valeur au score du joueur
+        /// </summary>
+        /// <param name="val"></param>
+        public void Add_Score(int val)
         {
             this.score += val;
         }
 
-        public void Add_Mot(string mot) //ajoute un mot dans l'historique des mots trouvés
+        /// <summary>
+        /// Ajoute le mot dans l'historique des mots trouvés
+        /// </summary>
+        /// <param name="mot"></param>
+        public void Add_Mot(string mot)
         {
             this.motsTrouvés.Add(mot);
         }
 
-        public void Remove_Main_Courante(Jetons monjeton) //retire un jeton de la main courante
+        /// <summary>
+        /// Retire un jeton de la main du joueur
+        /// </summary>
+        /// <param name="monjeton"></param>
+        public void Remove_Main_Courante(Jetons monjeton)
         {
             this.main.Remove(monjeton);
         }
 
-        public override string ToString() //retourne une chaine de caractère qui décrit le joueur
+        /// <summary>
+        /// Retourne une chaine de caractère décrivant le joueur
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
         {
             string leToString = "";
-            leToString += nom + " a un score de 0";  //nom et score
+            leToString += nom + " a un score de 0";  // Nom et score
             if (this.estIA)
             {
-                leToString += " (C'est une IA)";
+                leToString += " (C'est une IA)"; // Si c'est une IA
             }
             leToString += '\n';
             leToString += "Contenu de sa main : ";
 
-            for (int i = 0; i < this.main.Count; i++) //jetons de la main
+            for (int i = 0; i < this.main.Count; i++) // Jetons de la main
             {
                 leToString += this.main[i].Lettre + ", ";
             }

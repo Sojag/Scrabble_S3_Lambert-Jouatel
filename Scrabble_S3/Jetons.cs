@@ -34,6 +34,11 @@ namespace Scabble_JOUATEL
             return leToString;
         }
 
+        /// <summary>
+        /// Trouve la valeur associée à une lettre
+        /// </summary>
+        /// <param name="lettre"></param>
+        /// <returns> la valeur de la lettre </returns>
         public static int trouverLaValeur(char lettre)
         {
             int valeur = 1;
