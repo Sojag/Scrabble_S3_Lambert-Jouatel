@@ -394,25 +394,33 @@ namespace Scabble_JOUATEL
                     }
                 } // Vérifie l'alignement
 
-                for (int i = 1; i < 14; i++)
+                for (int i = 0; i < 15; i++)
                 {
-                    for (int j = 1; j < 14; j++)
+                    for (int j = 0; j < 15; j++)
                     {
                         char l = this.Plato[i, j];
                         if (l != '3' && l != '2' && l != '7' && l != '8' && l != '_' && l != '*')
                         {
-                            verifPlacement[i - 1, j] = true;
-                            verifPlacement[i + 1, j] = true;
-                            verifPlacement[i, j - 1] = true;
-                            verifPlacement[i, j + 1] = true;
+                            if (i > 1)
+                                verifPlacement[i - 1, j] = true;
+                            if (i < 14)
+                                verifPlacement[i + 1, j] = true;
+                            if (j > 1)
+                                verifPlacement[i, j - 1] = true;
+                            if (j < 14)
+                                verifPlacement[i, j + 1] = true;
                         }
                         l = plateauFactice[i, j];
                         if (l != '3' && l != '2' && l != '7' && l != '8' && l != '_' && l != '*')
                         {
-                            verifPlacement[i - 1, j] = true;
-                            verifPlacement[i + 1, j] = true;
-                            verifPlacement[i, j - 1] = true;
-                            verifPlacement[i, j + 1] = true;
+                            if (i > 1)
+                                verifPlacement[i - 1, j] = true;
+                            if (i < 14)
+                                verifPlacement[i + 1, j] = true;
+                            if (j > 1)
+                                verifPlacement[i, j - 1] = true;
+                            if (j < 14)
+                                verifPlacement[i, j + 1] = true;
                         }
                     }
                 } // Valide toutes les cases adjacentes à une lettre
@@ -561,14 +569,19 @@ namespace Scabble_JOUATEL
                 }
                 else
                 {
-                    for (int i = 1; i < 14; i++)
+                    for (int i = 0; i < 15; i++)
                     {
-                        for (int j = 1; j < 14; j++)
+                        for (int j = 0; j < 15; j++)
                         {
-                            char L1 = plateauFactice[i - 1, j];
-                            char L2 = plateauFactice[i + 1, j];
-                            char L3 = plateauFactice[i, j - 1];
-                            char L4 = plateauFactice[i, j + 1];
+                            char L1 = '_'; char L2 = '_'; char L3 = '_'; char L4 = '_';
+                            if (i > 1)
+                                L1 = plateauFactice[i - 1, j];
+                            if (i < 14)
+                                L2 = plateauFactice[i + 1, j];
+                            if (j > 1)
+                                L3 = plateauFactice[i, j - 1];
+                            if (j < 14)
+                                L4 = plateauFactice[i, j + 1];
                             if (!((L1 != '3' && L1 != '2' && L1 != '7' && L1 != '8' && L1 != '_' && L1 != '*') || (L4 != '3' && L4 != '2' && L4 != '7' && L4 != '8' && L4 != '_' && L4 != '*') || (L3 != '3' && L3 != '2' && L3 != '7' && L3 != '8' && L3 != '_' && L3 != '*') || (L2 != '3' && L2 != '2' && L2 != '7' && L2 != '8' && L2 != '_' && L2 != '*')))
                                 verifPlacement[i, j] = false;
                         }
