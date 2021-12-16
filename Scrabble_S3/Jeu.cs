@@ -210,8 +210,8 @@ namespace Scabble_JOUATEL
 
         public void PartieEnCours(int compteurDeTour = 1, bool continuer = true)
         {
-            Console.SetWindowSize(100, 30);
             Console.Clear();
+            Console.SetWindowSize(100, 30);
             // Console.WriteLine('\t' + "Tour : " + compteurDeTour);
             this.MonPlateau.AffichageOMG(this.ListeDesJoueurs);
             Thread.Sleep(1000);

@@ -31,6 +31,7 @@ namespace Scabble_JOUATEL
         {
             get { return this.motsTrouvés; }
         }
+
         public List<Jetons> Main
         {
             get { return this.main; }

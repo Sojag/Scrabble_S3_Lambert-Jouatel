@@ -375,6 +375,11 @@ namespace Scabble_JOUATEL
             return chargeage;
         }
 
+        /// <summary>
+        /// Charge une partie d'après un fichier de sauvegarde
+        /// </summary>
+        /// <param name="fichier"></param>
+        /// <returns></returns>
         static Jeu ChargerUnePartie(string fichier)
         {
             Plateau plateauChargé = new Plateau(fichier);
